@@ -36,3 +36,8 @@ This project includes user registration, login, dashboard access, and basic role
    ```bash
    git clone https://github.com/CAjmnz/Registration-and-Login-System-.git
    cd Registration-and-Login-System-
+2. Install dependencies:
+   ```bash
+   composer install
+   npm install
+
