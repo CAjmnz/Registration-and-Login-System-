@@ -40,4 +40,16 @@ This project includes user registration, login, dashboard access, and basic role
    ```bash
    composer install
    npm install
-
+3. Create and configure environment:
+   ```bash
+    cp .env.example .env
+    php artisan key:generate
+4. Set your database credentials in .env, then run:
+   ```bash
+    php artisan migrate
+5. Build frontend assets:
+   ```bash
+   npm run dev
+6. Start the app:
+   ```bash
+   php artisan serve
