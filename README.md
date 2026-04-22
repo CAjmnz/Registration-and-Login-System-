@@ -29,6 +29,8 @@ This project includes user registration, login, dashboard access, and basic role
 - `resources/views/dashboard.blade.php` – dashboard UI
 - `resources/views/users/index.blade.php` – users list UI
 - `database/migrations/2026_04_21_173422_add_is_admin_to_users_table.php` – admin column migration
+## screenshots
+
 
 ## Installation
 
