@@ -55,3 +55,8 @@ This project includes user registration, login, dashboard access, and basic role
 6. Start the app:
    ```bash
    php artisan serve
+## patch notes 
+   ```bash
+   2.1 improve UI
+   2.2 working with a simple settings
+      
