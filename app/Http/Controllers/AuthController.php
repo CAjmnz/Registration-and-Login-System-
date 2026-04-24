@@ -23,7 +23,7 @@ class AuthController extends Controller
             'lastname' => ['required', 'string', 'max:50'],
             'birthday' => ['nullable', 'date'],
             'address' => ['nullable', 'string', 'max:100'],
-            'contactno' => ['nullable', 'string', 'max:20'],
+            'contactno' => ['required', 'regex:/^09\d{9}$/'],
             'email' => ['required', 'email', 'unique:users,email'],
             'password' => ['required', 'confirmed', 'min:8'],
         ]);

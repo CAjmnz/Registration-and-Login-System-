@@ -1,3 +1,4 @@
+C
 @extends('layouts.auth')
 
 @section('title', 'Add User')
@@ -28,28 +29,36 @@
         }, 3000);
     </script>
 @endif
-    <form method="POST" action="{{ route('users.store') }}">
-        @csrf
-        <input name="firstname" value="{{ old('firstname') }}" placeholder="First Name"
-        class="w-full mb-3 p-3 rounded-lg border border-[#d9d0c3] bg-white text-[#3b3027] placeholder:text-[#8a7b6d] focus:border-[#5b402a] focus:ring-1 focus:ring-[#5b402a] outline-none">
-        <input name="lastname" value="{{ old('lastname') }}" placeholder="Last Name"
-        class="w-full mb-3 p-3 rounded-lg border border-[#d9d0c3] bg-white text-[#3b3027] placeholder:text-[#8a7b6d] focus:border-[#5b402a] focus:ring-1 focus:ring-[#5b402a] outline-none">
-        <input type="date" name="birthday" value="{{ old('birthday') }}"
-        class="w-full mb-3 p-3 rounded-lg border border-[#d9d0c3] bg-white text-[#3b3027] placeholder:text-[#8a7b6d] focus:border-[#5b402a] focus:ring-1 focus:ring-[#5b402a] outline-none">
-        <input name="address" value="{{ old('address') }}"placeholder="Address"
-        class="w-full mb-3 p-3 rounded-lg border border-[#d9d0c3] bg-white text-[#3b3027] placeholder:text-[#8a7b6d] focus:border-[#5b402a] focus:ring-1 focus:ring-[#5b402a] outline-none">
-        <input name="contactno" value="{{ old('contactno') }}" placeholder="Contact Number"
-        class="w-full mb-3 p-3 rounded-lg border border-[#d9d0c3] bg-white text-[#3b3027] placeholder:text-[#8a7b6d] focus:border-[#5b402a] focus:ring-1 focus:ring-[#5b402a] outline-none">
-        <input name="email" value="{{ old('email') }}" placeholder="Email"
-        class="w-full mb-3 p-3 rounded-lg border border-[#d9d0c3] bg-white text-[#3b3027] placeholder:text-[#8a7b6d] focus:border-[#5b402a] focus:ring-1 focus:ring-[#5b402a] outline-none">
-        <input type="password" name="password" placeholder="Password"
-        class="w-full mb-3 p-3 rounded-lg border border-[#d9d0c3] bg-white text-[#3b3027] placeholder:text-[#8a7b6d] focus:border-[#5b402a] focus:ring-1 focus:ring-[#5b402a] outline-none">
-        <input type="password" name="password_confirmation" placeholder="Confirm Password"
-        class="w-full mb-3 p-3 rounded-lg border border-[#d9d0c3] bg-white text-[#3b3027] placeholder:text-[#8a7b6d] focus:border-[#5b402a] focus:ring-1 focus:ring-[#5b402a] outline-none">
-        <button class="w-full bg-[#5b402a] hover:bg-[#4a331f] text-white font-bold py-3 rounded-lg transition">
-            CREATE ACCOUNT
-        </button>
-        <a href="{{ route('dashboard') }}" class="block px-3 py-2 rounded-lg hover:bg-[#ded5c7]">back to dashboard</a>
-    </form>
+   <form method="POST" action="{{ route('users.store') }}">
+    @csrf
+
+    <input name="firstname" value="{{ old('firstname') }}" placeholder="First Name"
+    class="w-full mb-3 p-3 rounded-lg border border-[#d9d0c3] bg-white text-[#3b3027]">
+
+    <input name="lastname" value="{{ old('lastname') }}" placeholder="Last Name"
+    class="w-full mb-3 p-3 rounded-lg border border-[#d9d0c3] bg-white text-[#3b3027]">
+
+    <input type="date" name="birthday" value="{{ old('birthday') }}"
+    class="w-full mb-3 p-3 rounded-lg border border-[#d9d0c3] bg-white text-[#3b3027]">
+
+    <input name="address" value="{{ old('address') }}" placeholder="Address"
+    class="w-full mb-3 p-3 rounded-lg border border-[#d9d0c3] bg-white text-[#3b3027]">
+
+    <input name="contactno" value="{{ old('contactno') }}" placeholder="Contact Number"
+    class="w-full mb-3 p-3 rounded-lg border border-[#d9d0c3] bg-white text-[#3b3027]">
+
+    <input name="email" value="{{ old('email') }}" placeholder="Email"
+    class="w-full mb-3 p-3 rounded-lg border border-[#d9d0c3] bg-white text-[#3b3027]">
+
+    <input type="password" name="password" placeholder="Password"
+    class="w-full mb-3 p-3 rounded-lg border border-[#d9d0c3] bg-white text-[#3b3027]">
+
+    <input type="password" name="password_confirmation" placeholder="Confirm Password"
+    class="w-full mb-3 p-3 rounded-lg border border-[#d9d0c3] bg-white text-[#3b3027]">
+
+    <button class="w-full bg-[#5b402a] text-white font-bold py-3 rounded-lg">
+        CREATE ACCOUNT
+    </button>
+</form>
 </div>
 @endsection

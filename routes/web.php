@@ -1,7 +1,9 @@
 <?php
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Guest Routes
@@ -34,7 +36,24 @@ Route::middleware('auth')->group(function () {
     | User Routes
     |--------------------------------------------------------------------------
     */
-        Route::middleware('can:view-users')->group(function () {
-        Route::resource('users', UserController::class)->except(['show']);
+    Route::middleware('can:view-users')->group(function () {
+    Route::resource('users', UserController::class)->except(['show']);
     });
+    /*
+    |--------------------------------------------------------------------------
+    | Setting  Routes
+    |--------------------------------------------------------------------------
+    */
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/settings',
+        [SettingController::class, 'index']
+    )->name('settings.index');
+
+    Route::post('/settings',
+        [SettingController::class, 'update']
+    )->name('settings.update');
+
+});
 });
