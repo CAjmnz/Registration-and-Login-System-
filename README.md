@@ -59,4 +59,5 @@ This project includes user registration, login, dashboard access, and basic role
    ```bash
    2.1 improve UI
    2.2 working with a simple settings
-      
+   2.3 fixing the settings
+   
