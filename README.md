@@ -61,3 +61,7 @@ This project includes user registration, login, dashboard access, and basic role
    2.2 working with a simple settings
    2.3 fixing the settings
    2.4 adding the themes
+   2.5 coffee theme
+## Future updates:
+   ```bash
+   3.1 deployment 
