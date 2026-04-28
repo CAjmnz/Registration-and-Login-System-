@@ -13,34 +13,60 @@
 <div class="space-y-6">
 
     <div>
-        <h1 class="text-2xl font-semibold text-[#3b3027]">
+        <h1 class="text-2xl font-semibold text- @if($theme === 'cold_brew')
+            border-[#C08552]
+        @elseif($theme === 'flat_white')
+            border-[#d6cfc7]
+        @else
+            border-[#c8b8a6]
+        @endif"">
             Dashboard
         </h1>
 
-        <p class="text-sm text-[#7a6d60] mt-1">
+        <p class="text-sm text- @if($theme === 'cold_brew')
+            border-[#C08552]
+        @elseif($theme === 'flat_white')
+            border-[#d6cfc7]
+        @else
+            border-[#c8b8a6]
+        @endif" mt-1">
             Welcome back, {{ auth()->user()->firstname ?? 'User' }}.
         </p>
     </div>
 
     {{-- STATS --}}
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
 
         <div class="
 
         @if($theme === 'cold_brew')
-            bg-[#2b221d] border-b border-[#8C5A3C]
+            bg-[#2b221d] border-b border-[#C08552]
         @elseif($theme === 'flat_white')
-            bg-[#f6f1ea] border-b border-[#d6cfc7]
+            bg-[#f6f1ea] border-b border-[#543310]
         @else
-            bg-[#e8ded6] border-b border-[#c8b8a6]
+            bg-[#e8ded6] border-b border-[#000000]
         @endif
     
      rounded-xl p-5">
-            <p class="text-xs uppercase tracking-wide text-[#C08552]">
+            <p class="text-xs uppercase tracking-wide text
+        @if($theme === 'cold_brew')
+            border-[#C08552]
+        @elseif($theme === 'flat_white')
+            border-[#d6cfc7]
+        @else
+            border-[#c8b8a6]
+        @endif">
                 Total Users
             </p>
 
-            <p class="text-3xl font-bold text-[#3b3027] mt-2">
+            <p class="text-3xl font-bold text- 
+         @if($theme === 'cold_brew')
+            border-[#3a2f28]
+        @elseif($theme === 'flat_white')
+            border-[#d6cfc7]
+        @else
+            border-[#c8b8a6]
+        @endif mt-2">
                 {{ \App\Models\User::count() }}
             </p>
         </div>
@@ -48,19 +74,33 @@
         <div class="
 
         @if($theme === 'cold_brew')
-            bg-[#2b221d] border-b border-[#8C5A3C]
+            bg-[#2b221d] border-b border-[#C08552]
         @elseif($theme === 'flat_white')
-            bg-[#f6f1ea] border-b border-[#d6cfc7]
+            bg-[#f6f1ea] border-b border-[#543310]
         @else
-            bg-[#e8ded6] border-b border-[#c8b8a6]
+            bg-[#e8ded6] border-b border-[#000000]
         @endif
     
      rounded-xl p-5">
-            <p class="text-xs uppercase tracking-wide text-[#C08552]">
+            <p class="text-xs uppercase tracking-wide text-  
+        @if($theme === 'cold_brew')
+            border-[#C08552]
+        @elseif($theme === 'flat_white')
+            border-[#d6cfc7]
+        @else
+            border-[#c8b8a6]
+        @endif">
                 Admins
             </p>
 
-            <p class="text-3xl font-bold text-[#3b3027] mt-2">
+            <p class="text-3xl font-bold text-  
+        @if($theme === 'cold_brew')
+            border-[#C08552]
+        @elseif($theme === 'flat_white')
+            border-[#d6cfc7]
+        @else
+            border-[#c8b8a6]
+        @endif mt-2">
                 {{ \App\Models\User::where('is_admin', true)->count() }}
             </p>
         </div>
@@ -68,19 +108,32 @@
         <div class="
 
         @if($theme === 'cold_brew')
-            bg-[#2b221d] border-b border-[#8C5A3C]
+            bg-[#2b221d] border-b border-[#C08552]
         @elseif($theme === 'flat_white')
-            bg-[#f6f1ea] border-b border-[#d6cfc7]
+            bg-[#f6f1ea] border-b border-[#543310]
         @else
-            bg-[#e8ded6] border-b border-[#c8b8a6]
+            bg-[#e8ded6] border-b border-[#000000]
         @endif
     
      rounded-xl p-5">
-            <p class="text-xs uppercase tracking-wide text-[#C08552]">
+            <p class="text-xs uppercase tracking-wide text-      
+            @if($theme === 'cold_brew')
+            border-[#C08552]
+        @elseif($theme === 'flat_white')
+            border-[#543310]
+        @else
+            border-[#000000]
+        @endif">
                 Non-Admins
             </p>
 
-            <p class="text-3xl font-bold text-[#3b3027] mt-2">
+            <p class="text-3xl font-bold text-  @if($theme === 'cold_brew')
+            border-[#3a2f28]
+        @elseif($theme === 'flat_white')
+            border-[#d6cfc7]
+        @else
+            border-[#c8b8a6]
+        @endif mt-2">
                 {{ \App\Models\User::where('is_admin', false)->count() }}
             </p>
         </div>
@@ -93,18 +146,30 @@
     @if($theme === 'cold_brew')
         bg-[#2b221d] border-b border-[#8C5A3C]
     @elseif($theme === 'flat_white')
-        bg-[#f6f1ea] border-b border-[#d6cfc7]
+        bg-[#f6f1ea] border-b border-[#543310]
     @else
-        bg-[#e8ded6] border-b border-[#c8b8a6]
+        bg-[#e8ded6] border-b border-[#000000]
     @endif
 
  rounded-xl p-5">
 
-        <h2 class="text-lg font-semibold text-[#3b3027] mb-2">
+        <h2 class="text-lg font-semibold text-  @if($theme === 'cold_brew')
+            border-[#3a2f28]
+        @elseif($theme === 'flat_white')
+            border-[#543310]
+        @else
+            border-[#000000]
+        @endif mb-2">
             Account Overview
         </h2>
 
-        <p class="text-sm text-[#6f6256]">
+        <p class="text-sm text-  @if($theme === 'cold_brew')
+            border-[#3a2f28]
+        @elseif($theme === 'flat_white')
+            border-[#d6cfc7]
+        @else
+            border-[#c8b8a6]
+        @endif">
             You are logged in as
             <span class="font-medium">
                 {{ auth()->user()->email }}
@@ -125,7 +190,16 @@
         @endif
     ">
 
-        <table class="w-full text-sm text-left border-collapse">
+        <table class="w-full text-sm border border-collapse
+
+@if($theme === 'cold_brew')
+    text-[#C08552]
+@elseif($theme === 'flat_white')
+    text-[#543310]
+@else
+    text-[#000000]
+@endif
+">
 
             <thead class="
 

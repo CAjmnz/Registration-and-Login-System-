@@ -18,11 +18,27 @@
     <div class="flex items-center justify-between">
 
         <div>
-            <h1 class="text-2xl font-semibold text-[#3b3027]">
+            <h1 class="text-2xl font-semibold text-      
+      @if($theme === 'cold_brew')
+    text-[#C08552]
+@elseif($theme === 'flat_white')
+    text-[#322C2B]
+@else
+    text-[#4B2E2B]
+@endif
+">
                 Registered Users
             </h1>
 
-            <p class="text-sm text-[#7a6d60] mt-1">
+            <p class="text-sm text        
+      @if($theme === 'cold_brew')
+    text-[#C08552]
+@elseif($theme === 'flat_white')
+    text-[#322C2B]
+@else
+    text-[#4B2E2B]
+@endif
+mt-1">
                 Manage and monitor all registered accounts.
             </p>
         </div>
@@ -62,39 +78,35 @@
     {{-- TABLE --}}
 <div class="
 border rounded-xl overflow-hidden
-
-@if($theme === 'dark')
-    bg-gray-800 border-gray-700
-@elseif($theme === 'contrast')
-    bg-black border-yellow-400
-@else
-    bg-[#f9f6f1] border-[#e0d8cc]
-@endif
-">
+     @if($theme === 'cold_brew')
+        bg-[#2b221d] border-b border-[#8C5A3C]
+    @elseif($theme === 'flat_white')
+        bg-[#f6f1ea] border-b border-[#d6cfc7]
+    @else
+        bg-[#e8ded6] border-b border-[#c8b8a6]
+    @endif>
 
 <div class="max-h-[58vh] overflow-y-auto">
 
 <table class="w-full text-sm border border-collapse
 
-@if($theme === 'dark')
-    text-gray-100
-@elseif($theme === 'contrast')
-    text-yellow-300
+@if($theme === 'cold_brew')
+    text-[#C08552]
+@elseif($theme === 'flat_white')
+    text-[#543310]
 @else
-    text-[#3b3027]
+    text-[#543310]
 @endif
 ">
-
 <thead class="uppercase text-xs border-b
 
-@if($theme === 'dark')
-    bg-gray-700 text-gray-200 border-gray-700
-@elseif($theme === 'contrast')
-    bg-yellow-400 text-black border-yellow-500
-@else
-    bg-[#efe9df] text-[#5a4a3b] border-[#e0d8cc]
-@endif
-">
+   @if($theme === 'cold_brew')
+                    bg-[#2b221d] border-b border-[#3a2f28]
+                @elseif($theme === 'flat_white')
+                    bg-[#f6f1ea] border-b border-[#d6cfc7]
+                @else
+                    bg-[#e8ded6] border-b border-[#c8b8a6]
+                @endif">
 
 <tr>
 <th class="px-3 py-3 b">#</th>
@@ -123,49 +135,51 @@ border rounded-xl overflow-hidden
 
 @forelse($users as $user)
 
-<tr class="
-@if($theme === 'dark')
-    hover:bg-gray-700
-@elseif($theme === 'contrast')
-    hover:bg-yellow-900
-@else
-    hover:bg-[#f3ede4]
-@endif
-">
+                <tr class="
 
-<td class="px-3 py-3 border">
+                    @if($theme === 'cold_brew')
+                        hover:bg-[#2b221d]
+                    @elseif($theme === 'flat_white')
+                        hover:bg-[#f3ede4]
+                    @else
+                        hover:bg-[#ede4da]
+                    @endif
+
+                ">
+
+<td class="px-3 py-3 ">
     {{ $loop->iteration }}
 </td>
 
-<td class="px-3 py-3 border">
+<td class="px-3 py-3 ">
     {{ $user->firstname }}
 </td>
 
-<td class="px-3 py-3 border">
+<td class="px-3 py-3 ">
     {{ $user->lastname }}
 </td>
 
-<td class="px-3 py-3 border">
+<td class="px-3 py-3 ">
     {{ optional($user->birthday)->format('M d, Y') }}
 </td>
 
-<td class="px-3 py-3 border">
+<td class="px-3 py-3 ">
     {{ $user->address }}
 </td>
 
-<td class="px-3 py-3 border">
+<td class="px-3 py-3 ">
     {{ $user->contactno }}
 </td>
 
-<td class="px-3 py-3 border">
+<td class="px-3 py-3 ">
     {{ $user->age }}
 </td>
 
-<td class="px-3 py-3 border">
+<td class="px-3 py-3 ">
     {{ $user->email }}
 </td>
 
-<td class="px-3 py-3 border space-x-2">
+<td class="px-3 py-3  space-x-2">
 
 @if($canManageUsers)
 
