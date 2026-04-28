@@ -20,4 +20,8 @@ class Setting extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function setting()
+{
+    return $this->hasOne(\App\Models\Setting::class);
+}
 }

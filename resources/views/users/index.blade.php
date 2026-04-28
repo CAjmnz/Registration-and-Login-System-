@@ -60,156 +60,169 @@
     @endif
 
     {{-- TABLE --}}
-    <div class="
-    border rounded-xl overflow-hidden
+<div class="
+border rounded-xl overflow-hidden
 
-    @if($theme === 'dark')
-        bg-gray-800 border-gray-700
-    @elseif($theme === 'contrast')
-        bg-black border-yellow-400
-    @else
-        bg-[#f9f6f1] border-[#e0d8cc]
-    @endif
+@if($theme === 'dark')
+    bg-gray-800 border-gray-700
+@elseif($theme === 'contrast')
+    bg-black border-yellow-400
+@else
+    bg-[#f9f6f1] border-[#e0d8cc]
+@endif
 ">
 
-        <div class="max-h-[58vh] overflow-y-auto">
+<div class="max-h-[58vh] overflow-y-auto">
 
-           <table class="w-full text-sm
-    @if($theme === 'dark')
-        text-gray-100
-    @elseif($theme === 'contrast')
-        text-yellow-300
-    @else
-        text-[#3b3027]
-    @endif
+<table class="w-full text-sm border border-collapse
+
+@if($theme === 'dark')
+    text-gray-100
+@elseif($theme === 'contrast')
+    text-yellow-300
+@else
+    text-[#3b3027]
+@endif
 ">
 
-               <thead class="
-    uppercase text-xs
+<thead class="uppercase text-xs border-b
 
-    @if($theme === 'dark')
-        bg-gray-700 text-gray-200
-    @elseif($theme === 'contrast')
-        bg-yellow-400 text-black
-    @else
-        bg-[#efe9df] text-[#5a4a3b]
-    @endif
-">
-                    <tr class="
-    @if($theme === 'dark')
-        hover:bg-gray-700
-    @elseif($theme === 'contrast')
-        hover:bg-yellow-900
-    @else
-        hover:bg-[#f3ede4]
-    @endif
-">
-                        <th class="px-3 py-3">#</th>
-                        <th class="px-3 py-3">First Name</th>
-                        <th class="px-3 py-3">Last Name</th>
-                        <th class="px-3 py-3">Birthday</th>
-                        <th class="px-3 py-3">Address</th>
-                        <th class="px-3 py-3">Contact</th>
-                        <th class="px-3 py-3">Age</th>
-                        <th class="px-3 py-3">Email</th>
-                        <th class="px-3 py-3">Actions</th>
-                    </tr>
-                </thead>
-
-             <tbody class="
-    divide-y
-
-    @if($theme === 'dark')
-        divide-gray-700 bg-gray-800
-    @elseif($theme === 'contrast')
-        divide-yellow-500 bg-black
-    @else
-        divide-[#e7dfd4]
-    @endif
+@if($theme === 'dark')
+    bg-gray-700 text-gray-200 border-gray-700
+@elseif($theme === 'contrast')
+    bg-yellow-400 text-black border-yellow-500
+@else
+    bg-[#efe9df] text-[#5a4a3b] border-[#e0d8cc]
+@endif
 ">
 
-                    @forelse($users as $user)
+<tr>
+<th class="px-3 py-3 b">#</th>
+<th class="px-3 py-3 b">First Name</th>
+<th class="px-3 py-3 b">Last Name</th>
+<th class="px-3 py-3 b">Birthday</th>
+<th class="px-3 py-3 b">Address</th>
+<th class="px-3 py-3 b">Contact</th>
+<th class="px-3 py-3 b">Age</th>
+<th class="px-3 py-3 b">Email</th>
+<th class="px-3 py-3 b">Actions</th>
+</tr>
 
-                    <tr class="
-    @if($theme === 'dark')
-        hover:bg-gray-700
-    @elseif($theme === 'contrast')
-        hover:bg-yellow-900
-    @else
-        hover:bg-[#f3ede4]
-    @endif
+</thead>
+
+<tbody class="
+
+@if($theme === 'dark')
+    bg-gray-800 divide-y divide-gray-700
+@elseif($theme === 'contrast')
+    bg-black divide-y divide-yellow-500
+@else
+    divide-y divide-[#e7dfd4]
+@endif
 ">
 
-                        <td class="px-3 py-3">{{ $loop->iteration }}</td>
-                        <td class="px-3 py-3">{{ $user->firstname }}</td>
-                        <td class="px-3 py-3">{{ $user->lastname }}</td>
-                        <td class="px-3 py-3">{{ optional($user->birthday)->format('Y-m-d') }}</td>
-                        <td class="px-3 py-3">{{ $user->address }}</td>
-                        <td class="px-3 py-3">{{ $user->contactno }}</td>
-                        <td class="px-3 py-3">{{ $user->age }}</td>
-                        <td class="px-3 py-3">{{ $user->email }}</td>
+@forelse($users as $user)
 
-                        <td class="px-3 py-3">
+<tr class="
+@if($theme === 'dark')
+    hover:bg-gray-700
+@elseif($theme === 'contrast')
+    hover:bg-yellow-900
+@else
+    hover:bg-[#f3ede4]
+@endif
+">
 
-                            <div class="flex gap-2">
+<td class="px-3 py-3 border">
+    {{ $loop->iteration }}
+</td>
 
-                                <button
-                                    type="button"
-                                    class="px-3 py-1 rounded bg-amber-500 text-white text-xs editUserButton"
-                                    data-id="{{ $user->id }}"
-                                    data-firstname="{{ $user->firstname }}"
-                                    data-lastname="{{ $user->lastname }}"
-                                    data-birthday="{{ optional($user->birthday)->format('Y-m-d') }}"
-                                    data-address="{{ $user->address }}"
-                                    data-contactno="{{ $user->contactno }}"
-                                    data-email="{{ $user->email }}"
-                                >
-                                    Edit
-                                </button>
+<td class="px-3 py-3 border">
+    {{ $user->firstname }}
+</td>
 
-                                <form
-                                    action="{{ route('users.destroy', $user) }}"
-                                    method="POST"
-                                    onsubmit="return confirm('Delete this user?')"
-                                >
-                                    @csrf
-                                    @method('DELETE')
+<td class="px-3 py-3 border">
+    {{ $user->lastname }}
+</td>
 
-                                    <button
-                                        type="submit"
-                                        class="px-3 py-1 rounded bg-red-600 text-white text-xs"
-                                    >
-                                        Delete
-                                    </button>
+<td class="px-3 py-3 border">
+    {{ optional($user->birthday)->format('M d, Y') }}
+</td>
 
-                                </form>
+<td class="px-3 py-3 border">
+    {{ $user->address }}
+</td>
 
-                            </div>
+<td class="px-3 py-3 border">
+    {{ $user->contactno }}
+</td>
 
-                        </td>
+<td class="px-3 py-3 border">
+    {{ $user->age }}
+</td>
 
-                    </tr>
+<td class="px-3 py-3 border">
+    {{ $user->email }}
+</td>
 
-                    @empty
+<td class="px-3 py-3 border space-x-2">
 
-                    <tr>
-                        <td colspan="9" class="px-4 py-6 text-center text-[#3b3027]">
-                            No users registered yet.
-                        </td>
-                    </tr>
+@if($canManageUsers)
 
-                    @endforelse
+<button
+    type="button"
+    class="px-1 py-1 rounded bg-amber-500 text-white text-xs editUserButton"
+    data-id="{{ $user->id }}"
+    data-firstname="{{ $user->firstname }}"
+    data-lastname="{{ $user->lastname }}"
+    data-birthday="{{ optional($user->birthday)->format('Y-m-d') }}"
+    data-address="{{ $user->address }}"
+    data-contactno="{{ $user->contactno }}"
+    data-email="{{ $user->email }}"
+>
+    Edit
+</button>
 
-                </tbody>
+<form
+    action="{{ route('users.destroy', $user) }}"
+    method="POST"
+    class="inline"
+>
+    @csrf
+    @method('DELETE')
 
-            </table>
+    <button
+        type="submit"
+        class="px-1 py-1 rounded bg-red-600 text-white text-xs"
+        onclick="return confirm('Delete this user?')"
+    >
+        Delete
+    </button>
 
-        </div>
+</form>
 
-    </div>
+@endif
+
+</td>
+
+</tr>
+
+@empty
+
+<tr>
+<td colspan="9" class="px-3 py-6 text-center border">
+    No users found.
+</td>
+</tr>
+
+@endforelse
+
+</tbody>
+
+</table>
 
 </div>
-
+</div>
 {{-- ================= CREATE MODAL ================= --}}
 <div
     id="createUserModal"
@@ -219,22 +232,30 @@
         @if($theme === 'contrast') bg-black/90 @endif
     "
 >
-   <div class="
-    p-8 rounded-lg w-[520px]
 
-    @if($theme === 'dark')
-        bg-gray-800 text-gray-100
-    @elseif($theme === 'contrast')
-        bg-black text-yellow-300 border border-yellow-400
-    @else
-        bg-white text-[#3b3027]
-    @endif
-">
-        <h2 class="text-xl font-bold mb-4">Add User</h2>
+    <div class="
+        p-8 rounded-lg w-[520px]
+
+        @if($theme === 'dark')
+            bg-gray-800 text-gray-100
+        @elseif($theme === 'contrast')
+            bg-black text-yellow-300 border border-yellow-400
+        @else
+            bg-white text-[#3b3027]
+        @endif
+    ">
+
+        <h2 class="text-xl font-bold mb-4">
+            Add User
+        </h2>
+
         @include('users.partials.form')
-    </div>
-</div>
 
+       
+
+    </div>
+
+</div>
 {{-- ================= EDIT MODAL ================= --}}
 <div
     id="editUserModal"

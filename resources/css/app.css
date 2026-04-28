@@ -1,4 +1,8 @@
 @import "tailwindcss";
-
-@source "../views";
-
+ 
+/*
+ * BrewAdmin — app.css
+ * Using Tailwind v4 import syntax.
+ * All theme CSS variables and component styles live in app.blade.php <style>.
+ * No @apply needed — component classes are defined directly in the layout.
+ */

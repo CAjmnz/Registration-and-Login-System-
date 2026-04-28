@@ -20,8 +20,16 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-   public function boot(): void
-{
-    View::share('theme', auth()->user()?->setting?->theme ?? 'light');
-}
+    public function boot(): void
+    {
+        View::share(
+            'theme',
+            auth()->user()?->setting?->theme ?? 'spanish_latte'
+        );
+    
+        View::share(
+            'fontSize',
+            auth()->user()?->setting?->font_size ?? 'medium'
+        );
+    }
 }
