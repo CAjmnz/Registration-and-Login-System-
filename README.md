@@ -31,7 +31,7 @@ This project includes user registration, login, dashboard access, and basic role
 - `database/migrations/2026_04_21_173422_add_is_admin_to_users_table.php` – admin column migration
 ## screenshots
 
-## future Imporvements 
+## Future Imporvements 
 - `add AI`
 ## Installation
 
