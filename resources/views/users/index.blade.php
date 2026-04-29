@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Customers')
+@section('title', 'REGISTERED USERS')
 
 @section('content')
 
@@ -76,51 +76,49 @@ mt-1">
     @endif
 
     {{-- TABLE --}}
-<div class="
-border rounded-xl overflow-hidden
-     @if($theme === 'cold_brew')
-        bg-[#2b221d] border-b border-[#8C5A3C]
+<div class="border rounded-xl max-h-[58vh] overflow-auto
+    @if($theme === 'cold_brew')
+        bg-[#2b221d] border-[#8C5A3C]
     @elseif($theme === 'flat_white')
-        bg-[#f6f1ea] border-b border-[#d6cfc7]
+        bg-[#f6f1ea] border-[#d6cfc7]
     @else
-        bg-[#e8ded6] border-b border-[#c8b8a6]
-    @endif>
-
-<div class="max-h-[58vh] overflow-y-auto">
-
-<table class="w-full text-sm border border-collapse
-
-@if($theme === 'cold_brew')
-    text-[#C08552]
-@elseif($theme === 'flat_white')
-    text-[#543310]
-@else
-    text-[#543310]
-@endif
+        bg-[#e8ded6] border-[#c8b8a6]
+    @endif
 ">
-<thead class="uppercase text-xs border-b
 
-   @if($theme === 'cold_brew')
-                    bg-[#2b221d] border-b border-[#3a2f28]
-                @elseif($theme === 'flat_white')
-                    bg-[#f6f1ea] border-b border-[#d6cfc7]
-                @else
-                    bg-[#e8ded6] border-b border-[#c8b8a6]
-                @endif">
+    <table class="w-full min-w-[900px] text-sm border-collapse
+        @if($theme === 'cold_brew')
+            text-[#C08552]
+        @elseif($theme === 'flat_white')
+            text-[#543310]
+        @else
+            text-[#543310]
+        @endif
+    ">
 
-<tr>
-<th class="px-3 py-3 b">#</th>
-<th class="px-3 py-3 b">First Name</th>
-<th class="px-3 py-3 b">Last Name</th>
-<th class="px-3 py-3 b">Birthday</th>
-<th class="px-3 py-3 b">Address</th>
-<th class="px-3 py-3 b">Contact</th>
-<th class="px-3 py-3 b">Age</th>
-<th class="px-3 py-3 b">Email</th>
-<th class="px-3 py-3 b">Actions</th>
-</tr>
+        <thead class="uppercase text-xs border-b
+            @if($theme === 'cold_brew')
+                bg-[#2b221d] border-b border-[#3a2f28]
+            @elseif($theme === 'flat_white')
+                bg-[#f6f1ea] border-b border-[#d6cfc7]
+            @else
+                bg-[#e8ded6] border-b border-[#c8b8a6]
+            @endif
+        ">
 
-</thead>
+            <tr>
+                <th class="px-3 py-3">#</th>
+                <th class="px-3 py-3">First Name</th>
+                <th class="px-3 py-3">Last Name</th>
+                <th class="px-3 py-3">Birthday</th>
+                <th class="px-3 py-3">Address</th>
+                <th class="px-3 py-3">Contact</th>
+                <th class="px-3 py-3">Age</th>
+                <th class="px-3 py-3">Email</th>
+                <th class="px-3 py-3">Actions</th>
+            </tr>
+
+        </thead>
 
 <tbody class="
 

@@ -179,7 +179,7 @@
     </div>
 
     {{-- USERS TABLE --}}
-    <div class="border rounded-xl overflow-hidden
+<div class="max-h-[58vh] overflow-auto
 
         @if($theme === 'cold_brew')
             border-[#3a2f28]
@@ -190,7 +190,7 @@
         @endif
     ">
 
-        <table class="w-full text-sm border border-collapse
+        <table class="w-full min-w-[900px] text-sm border border-collapse
 
 @if($theme === 'cold_brew')
     text-[#C08552]

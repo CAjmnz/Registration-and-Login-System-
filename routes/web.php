@@ -1,17 +1,10 @@
 <?php
 
-/*
- * ============================================================
- * CLEAN web.php
- * Save to: routes/web.php
- * ============================================================
- */
-
- use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +12,9 @@ use App\Http\Controllers\DashboardController;
 |--------------------------------------------------------------------------
 */
 Route::get('/', function () {
-    return auth()->check() ? redirect('/dashboard') : redirect('/login');
+    return auth()->check()
+        ? redirect()->route('dashboard')
+        : redirect()->route('login');
 });
 
 /*
@@ -28,10 +23,18 @@ Route::get('/', function () {
 |--------------------------------------------------------------------------
 */
 Route::middleware('guest')->group(function () {
-    Route::get('/register',  [AuthController::class, 'showRegister'])->name('register.show');
-    Route::post('/register', [AuthController::class, 'register'])->name('register');
-    Route::get('/login',     [AuthController::class, 'showLogin'])->name('login');
-    Route::post('/login',    [AuthController::class, 'login'])->name('login.post');
+
+    Route::get('/register', [AuthController::class, 'showRegister'])
+        ->name('register.show');
+
+    Route::post('/register', [AuthController::class, 'register'])
+        ->name('register');
+
+    Route::get('/login', [AuthController::class, 'showLogin'])
+        ->name('login');
+
+    Route::post('/login', [AuthController::class, 'login'])
+        ->name('login.post');
 });
 
 /*
@@ -41,26 +44,35 @@ Route::middleware('guest')->group(function () {
 */
 Route::middleware('auth')->group(function () {
 
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-    Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->name('dashboard');
-
     /*
-    |--------------------------------------------------------------------------
-    | Settings Routes  (all logged-in users can change their own settings)
-    |--------------------------------------------------------------------------
+    | Logout
     */
-    Route::get('/settings',  [SettingsController::class, 'index'])->name('settings.index');
-    Route::post('/settings', [SettingsController::class, 'update'])->name('settings.update');
+    Route::post('/logout', [AuthController::class, 'logout'])
+        ->name('logout');
 
     /*
-    |--------------------------------------------------------------------------
-    | Admin-only Routes
-    |--------------------------------------------------------------------------
+    | Dashboard
+    */
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+        ->name('dashboard');
+
+    /*
+    | User Settings
+    */
+    Route::get('/settings', [SettingsController::class, 'index'])
+        ->name('settings.index');
+
+    Route::post('/settings', [SettingsController::class, 'update'])
+        ->name('settings.update');
+
+    /*
+    | Admin-only routes
     */
     Route::middleware('admin')->group(function () {
-        Route::resource('users', UserController::class)->except(['show']);
+
+        Route::resource('users', UserController::class)
+            ->except(['show']);
+
     });
 
 });
